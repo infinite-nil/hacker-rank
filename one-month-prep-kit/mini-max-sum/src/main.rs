@@ -1,13 +1,15 @@
-fn mini_max_sum(arr: Vec<i32>) {
-    let mut min: i32 = 0;
-    let mut max: i32 = 0;
+fn mini_max_sum(arr: Vec<i64>) {
+    let mut min: i64 = 0;
+    let mut max: i64 = 0;
+    let mut items = arr;
 
-    for (index, num) in arr.iter().enumerate() {
+    items.sort_unstable();
+
+    for (index, num) in items.iter().enumerate() {
         if index != 0 {
-            max = max + num
+            max = max + num;
         }
-        
-        if index != arr.len() - 1 {
+        if index != items.len() - 1 {
             min = min + num
         }
     }
@@ -16,7 +18,7 @@ fn mini_max_sum(arr: Vec<i32>) {
 }
 
 fn main() {
-    let arr = vec![1, 3, 5, 7, 9];
+    let arr = vec![7, 69, 2, 221, 8974];
 
     mini_max_sum(arr)
 }
